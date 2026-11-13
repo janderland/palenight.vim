@@ -26,7 +26,11 @@ let s:colors = {
       \ "vertsplit": get(s:overrides, "vertsplit", { "gui": "#181A1F", "cterm": "59", "cterm16": "15" }),
       \ "white_mask_1": get(s:overrides, "white_mask_1", { "gui": "#333747", "cterm": "237", "cterm16": "15" }),
       \ "white_mask_3": get(s:overrides, "white_mask_3", { "gui": "#474b59", "cterm": "238", "cterm16": "15" }),
-      \ "white_mask_11": get(s:overrides, "white_mask_11", { "gui": "#989aa2", "cterm": "238", "cterm16": "15" })
+      \ "white_mask_11": get(s:overrides, "white_mask_11", { "gui": "#989aa2", "cterm": "238", "cterm16": "15" }),
+      \ "diff_add": get(s:overrides, "diff_add", { "gui": "#2f4238", "cterm": "22", "cterm16": "2" }),
+      \ "diff_delete": get(s:overrides, "diff_delete", { "gui": "#4b2f3a", "cterm": "52", "cterm16": "1" }),
+      \ "diff_change": get(s:overrides, "diff_change", { "gui": "#2f3550", "cterm": "17", "cterm16": "8" }),
+      \ "diff_text": get(s:overrides, "diff_text", { "gui": "#3e4a75", "cterm": "18", "cterm16": "4" })
       \}
 
 function! palenight#GetColors()

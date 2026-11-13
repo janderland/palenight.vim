@@ -93,6 +93,10 @@ let s:visual_grey = s:colors.visual_grey
 let s:menu_grey = s:colors.menu_grey
 let s:special_grey = s:colors.special_grey
 let s:vertsplit = s:colors.vertsplit
+let s:diff_add = s:colors.diff_add
+let s:diff_delete = s:colors.diff_delete
+let s:diff_change = s:colors.diff_change
+let s:diff_text = s:colors.diff_text
 
 " }}}
 
@@ -145,10 +149,11 @@ call s:h("CursorIM", {}) " like Cursor, but used when in IME mode
 call s:h("CursorColumn", { "bg": s:cursor_grey }) " the screen column that the cursor is in when 'cursorcolumn' is set
 call s:h("CursorLine", { "bg": s:cursor_grey }) " the screen line that the cursor is in when 'cursorline' is set
 call s:h("Directory", { "fg": s:blue }) " directory names (and other special names in listings)
-call s:h("DiffAdd", { "bg": s:green, "fg": s:black }) " diff mode: Added line
-call s:h("DiffChange", { "bg": s:yellow, "fg": s:black }) " diff mode: Changed line
-call s:h("DiffDelete", { "bg": s:red, "fg": s:black }) " diff mode: Deleted line
-call s:h("DiffText", { "bg": s:black, "fg": s:yellow }) " diff mode: Changed text within a changed line
+" Diff groups set only a background so syntax highlighting shows through.
+call s:h("DiffAdd", { "bg": s:diff_add }) " diff mode: Added line
+call s:h("DiffChange", { "bg": s:diff_change }) " diff mode: Changed line
+call s:h("DiffDelete", { "bg": s:diff_delete }) " diff mode: Deleted line
+call s:h("DiffText", { "bg": s:diff_text }) " diff mode: Changed text within a changed line
 call s:h("ErrorMsg", { "fg": s:red }) " error messages on the command line
 call s:h("VertSplit", { "fg": s:vertsplit }) " the column separating vertically split windows
 call s:h("Folded", { "fg": s:comment_grey }) " line used for closed folds
@@ -337,6 +342,10 @@ call s:h("markdownIdDeclaration", { "fg": s:blue })
 call s:h("mkdLink", { "fg": s:white })
 call s:h("markdownLinkDelimiter", { "fg": s:white })
 call s:h("mkdURL", { "fg": s:light_red })
+if has("nvim")
+  call s:h("@markup.link", { "fg": s:yellow })
+  call s:h("@markup.link.url", { "fg": s:dark_yellow })
+endif
 
 " Ruby
 call s:h("rubyAccess", { "fg": s:cyan })
